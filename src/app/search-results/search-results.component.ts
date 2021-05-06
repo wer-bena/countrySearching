@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApiHttpService} from '../api-http.service';
-import {Observable} from 'rxjs';
-import {CountryInterface} from '../country.interface';
+import {MainPageComponent} from '../main-page/main-page.component';
 
 @Component({
   selector: 'app-search-results',
@@ -10,11 +9,15 @@ import {CountryInterface} from '../country.interface';
 })
 export class SearchResultsComponent implements OnInit {
 
-  // countries$: Observable<CountryInterface[]>;
+  constructor(private apiHttpService: ApiHttpService, public mainPage: MainPageComponent) { }
 
-  constructor(private apiHttpService: ApiHttpService) { }
+  @Input() countriesList;
 
   ngOnInit(): void {
+  }
+
+  public showCountries(){
+    console.log(this.mainPage.countries);
   }
 
 }

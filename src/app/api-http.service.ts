@@ -16,12 +16,15 @@ export class ApiHttpService{
   constructor(private httpClient: HttpClient) {
   }
 
-getCountriesByName(name: string): Observable<any>{
-    return this.httpClient.get(`${BASE_URL}/name/${name}`);
+getCountriesByName(name: string): Observable<CountryInterface[]>{
+    return this.httpClient.get<CountryInterface[]>(`${BASE_URL}/name/${name}`);
+}
+getCountriesByCapital(capital: string): Observable<CountryInterface[]>{
+    return this.httpClient.get<CountryInterface[]>(`${BASE_URL}/capital/${capital}`);
 }
 
-// getAllCountries(){
-//     return this.httpClient.get<CountryInterface[]>(`${BASE_URL}/all`);
-// }
+getCountriesByCurrency(currency: object[]): Observable<CountryInterface[]>{
+    return this.httpClient.get<CountryInterface[]>(`${BASE_URL}/currency/${currency}`);
+}
 
 }

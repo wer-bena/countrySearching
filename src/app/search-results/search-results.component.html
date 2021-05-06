@@ -6,8 +6,17 @@
 
     <!--  lista rezutlatow wyszukiwania-->
 
-    <div class="uk-background-default uk-height-small">
+    <div class="uk-container-expand uk-height-viewport uk-flex uk-flex-center" style="background-color: whitesmoke; border: 1px black solid">
+
+    <ul>
+      <li *ngFor="let country of mainPage.countries">
+        <a class="uk-link-text">
+          <span>{{country.name}}</span>
+        </a>
+      </li>
+    </ul>
 
     </div>
+      </div>
 
   </div>

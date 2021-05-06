@@ -5,19 +5,18 @@
     <h5 class="uk-heading-small"> Country search by </h5>
     <div class="uk-flex uk-flex-middle">
       <ul uk-tab uk-switcher>
-        <li class="uk-active"><a>Name</a></li>
-        <li><a>Capital city</a></li>
-        <li><a>Currency</a></li>
+        <li class="uk-active" #name ><a>Name</a></li>
+        <li #capital><a>Capital city</a></li>
+        <li #currency><a>Currency</a></li>
       </ul>
     </div>
     <div>
-      <input type="search" [(ngModel)]="allCountries.name" placeholder="Search..." class="uk-input uk-border-rounded">
+      <input type="text" [(ngModel)]="inputValue" placeholder="Search..." class="uk-input uk-border-rounded">
     </div>
 
     <div>
-      <button routerLink="results" (click)="search(allCountries.name)" class="uk-button-large uk-button uk-button-primary uk-border-rounded uk-margin-small-top uk-align-right">Search</button>
+      <button routerLink="results" (click)="searchByName(allCountries.name)" class="uk-button-large uk-button uk-button-primary uk-border-rounded uk-margin-small-top uk-align-right">Search</button>
     </div>
-
 
 
   </div>
