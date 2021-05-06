@@ -1,13 +1,12 @@
 <div class="uk-container-expand uk-height-viewport uk-flex uk-flex-middle uk-flex-center uk-background-muted">
 
   <div>
-
     <h5 class="uk-heading-small"> Country search by </h5>
     <div class="uk-flex uk-flex-middle">
       <ul uk-tab uk-switcher>
-        <li class="uk-active" #name ><a>Name</a></li>
-        <li #capital><a>Capital city</a></li>
-        <li #currency><a>Currency</a></li>
+        <li class="uk-active" (click)="getTabName('name')" #name ><a>Name</a></li>
+        <li #capital (click)="getTabName('capital')"><a>Capital city</a></li>
+        <li #currency (click)="getTabName('currency')"><a>Currency</a></li>
       </ul>
     </div>
     <div>
@@ -15,7 +14,7 @@
     </div>
 
     <div>
-      <button routerLink="results" (click)="searchByName(allCountries.name)" class="uk-button-large uk-button uk-button-primary uk-border-rounded uk-margin-small-top uk-align-right">Search</button>
+      <button routerLink="results" (click)="searchBy(inputValue)" class="uk-button-large uk-button uk-button-primary uk-border-rounded uk-margin-small-top uk-align-right">Search</button>
     </div>
 
 

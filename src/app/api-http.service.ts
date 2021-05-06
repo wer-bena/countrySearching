@@ -23,7 +23,7 @@ getCountriesByCapital(capital: string): Observable<CountryInterface[]>{
     return this.httpClient.get<CountryInterface[]>(`${BASE_URL}/capital/${capital}`);
 }
 
-getCountriesByCurrency(currency: object[]): Observable<CountryInterface[]>{
+  getCountriesByCurrency(currency: string): Observable<CountryInterface[]>{
     return this.httpClient.get<CountryInterface[]>(`${BASE_URL}/currency/${currency}`);
 }
 
