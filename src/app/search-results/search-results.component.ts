@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiHttpService} from '../api-http.service';
+import {Observable} from 'rxjs';
+import {CountryInterface} from '../country.interface';
 
 @Component({
   selector: 'app-search-results',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
 
-  constructor() { }
+  // countries$: Observable<CountryInterface[]>;
+
+  constructor(private apiHttpService: ApiHttpService) { }
 
   ngOnInit(): void {
   }
