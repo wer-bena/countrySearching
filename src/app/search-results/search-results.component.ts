@@ -36,8 +36,11 @@ export class SearchResultsComponent implements OnInit {
       this.searchByName(this.mainPage.inputValue);
     }
     if (this.mainPage.tab === 'capital'){
+      console.log(this.mainPage.tab);
       this.searchByCapital(this.mainPage.inputValue);
-    } else {this.searchByCurrency(this.mainPage.inputValue);}
+    } else {
+      console.log(this.mainPage.tab);
+      this.searchByCurrency(this.mainPage.inputValue);}
   }
 
   public searchByName(value: string){

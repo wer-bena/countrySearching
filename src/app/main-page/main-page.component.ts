@@ -17,7 +17,7 @@ export class MainPageComponent implements OnInit {
   capitals: CountryInterface[] = [];
   currencies: CountryInterface[] = [];
   inputValue: string;
-  tab: string;
+  tab: string = 'name';
   liList: any = document.getElementsByTagName('li');
 
   constructor(private apiHttpService: ApiHttpService, private router: Router) { }
