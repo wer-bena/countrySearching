@@ -8,6 +8,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import {HttpClientModule} from '@angular/common/http';
 import { CountryDetailsComponent } from './country-details/country-details.component';
 import {FormsModule} from '@angular/forms';
+import {dataStoreService} from './data-store.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
   ],
   providers: [
-    MainPageComponent,
+     MainPageComponent,
+     dataStoreService
   ],
   bootstrap: [AppComponent]
 })
