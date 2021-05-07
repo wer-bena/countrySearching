@@ -41,7 +41,7 @@ export class MainPageComponent implements OnInit {
     if (this.tab === 'capital'){
       console.log(this.tab);
       this.searchByCapital(this.inputValue);
-      this._dataStoreService.setInpuTValue(this.inputValue);
+      this._dataStoreService.setCapital(this.inputValue);
     } else {
       console.log(this.tab);
       this.searchByCurrency(this.inputValue);
@@ -61,6 +61,7 @@ export class MainPageComponent implements OnInit {
      const capitalPromise = this.apiHttpService.getCountriesByCapital(
        this.inputValue
      );
+     console.log('stolica');
      this._dataStoreService.setCapital(capitalPromise);
   }
 

@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
     public capital: Observable<any>;
     public currency: Observable<any>;
     public inputValue: Observable<any>;
+    public details: Observable<any>;
 
     constructor() {}
 
@@ -39,6 +40,12 @@ import {Observable} from 'rxjs';
     this.inputValue = data;
   }
   getInputValue() {
+    return this.inputValue;
+  }
+  setDetails(data) {
+    this.inputValue = data;
+  }
+  getDetails() {
     return this.inputValue;
   }
   }

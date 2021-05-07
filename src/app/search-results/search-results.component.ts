@@ -21,20 +21,22 @@ export class SearchResultsComponent implements OnInit {
   ) {
     console.log(this._dataStoreService.getCapital());
     this.inputValue = this._dataStoreService.getInputValue();
+    console.log(this._dataStoreService.getCapital());
 
     this._dataStoreService.getData().subscribe((res) => {
       this.countries = res;
-      console.log('DUPA');
+      this._dataStoreService.setDetails(this.countries);
+      console.log('cos tam');
       console.log(this.countries);
     });
 
     // this._dataStoreService.getCapital().subscribe((res) => {
-    //   this.capitals = res;
-    //   console.log('DUPA');
-    //   console.log(this.capitals);
+    // this.capitals = res;
+    // console.log('cos tam 2');
+    // console.log(this.capitals);
     // });
+    // }
   }
-
   @Input() countriesList;
 
   ngOnInit(): void {}

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SearchResultsComponent} from '../search-results/search-results.component';
+import {dataStoreService} from '../data-store.service';
+import {CountryInterface} from '../country.interface';
 
 @Component({
   selector: 'app-country-details',
@@ -8,10 +10,19 @@ import {SearchResultsComponent} from '../search-results/search-results.component
 })
 export class CountryDetailsComponent implements OnInit {
 
-  constructor(public searchResults: SearchResultsComponent) { }
+  details: CountryInterface[] = [];
+
+  constructor(private _dataStore: dataStoreService) {
+    this._dataStore.getDetails().subscribe((res) => {
+      this.details = res;
+      // this._dataStore.setDetails(this.details);
+      console.log('cos tam details');
+      console.log(this.details);
+    });
+
+  }
 
   ngOnInit(): void {
-   // console.log(this.searchResults.tabName);
   }
 
 }

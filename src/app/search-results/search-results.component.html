@@ -6,13 +6,13 @@
 
     <!--  lista rezutlatow wyszukiwania-->
 
-    <div class="uk-container-expand uk-height-viewport uk-flex uk-flex-center" style="background-color: whitesmoke">
+    <div class="uk-container-expand uk-height-viewport uk-flex uk-flex-center">
 
     <ul style="width: 100%">
-      <li class="uk-list-primary" style="background-color: aliceblue; line-height: 50px; width: 100%; height: 50px; border: 1px solid white; list-style: none; color: black; font-family: sans-serif; padding-left: 20px; font-size: larger;
+      <li style="background-color: whitesmoke; line-height: 50px; width: 100%; height: 50px; border: 1px white solid; border-radius: 10px; list-style: none; color: black; font-family: sans-serif; padding-left: 20px; font-size: larger;
       margin: auto 0; " *ngFor="let country of countries">
-        <a  routerLink="details">
-          <span>{{country.name}}</span>
+        <a>
+          <span routerLink="/details">{{country.name}}</span>
         </a>
       </li>
     </ul>
