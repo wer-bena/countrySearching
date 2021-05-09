@@ -16,7 +16,7 @@ export class CountryDetailsComponent implements OnInit {
     this._dataStore.getDetails().subscribe((res) => {
       this.details = res;
       // this._dataStore.setDetails(this.details);
-      console.log('cos tam details');
+      console.log('cos tam details dziala');
       console.log(this.details);
     });
 
