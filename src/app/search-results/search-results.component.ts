@@ -13,35 +13,55 @@ import {Observable} from 'rxjs';
 export class SearchResultsComponent implements OnInit {
   countries: CountryInterface[] = [];
   capitals: CountryInterface[] = [];
+  currencies: CountryInterface[] = [];
   inputValue: Observable<any>;
+  tabName: string;
   constructor(
     private apiHttpService: ApiHttpService,
     public mainPage: MainPageComponent,
     private _dataStoreService: dataStoreService
   ) {
+    this.tabName = _dataStoreService.getTab();
+    console.log('search results');
+    console.log(this.tabName);
     console.log(this._dataStoreService.getCapital());
     this.inputValue = this._dataStoreService.getInputValue();
     console.log(this._dataStoreService.getCapital());
 
+    if (this.tabName === 'name'){
     this._dataStoreService.getData().subscribe((res) => {
       this.countries = res;
       this._dataStoreService.setDetails(this.countries);
       console.log('cos tam');
       console.log(this.countries);
-    });
+    })};
 
-    // this._dataStoreService.getCapital().subscribe((res) => {
-    // this.capitals = res;
-    // console.log('cos tam 2');
-    // console.log(this.capitals);
-    // });
-    // }
-  }
+    if (this.tabName === 'capital'){
+      this._dataStoreService.getCapital().subscribe((res) => {
+        this.capitals = res;
+        console.log('cos tam 2');
+        console.log(this.capitals);
+      });
+    }
+    if (this.tabName === 'currency'){
+      this._dataStoreService.getCurrency().subscribe((res) => {
+        this.currencies = res;
+        console.log('cos tam currencies');
+        console.log(this.currencies);
+      });
+    }
+    }
+
   @Input() countriesList;
 
   ngOnInit(): void {}
 
   public showCountries() {
     console.log(this.mainPage.countries);
+  }
+
+  public storeItem(i: number){
+    console.log(i);
+    this._dataStoreService.setItem(this.countries[i]);
   }
 }

@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
+import {CountryInterface} from './country.interface';
 
 @Injectable()
   export class dataStoreService {
     public countries: Observable<any>;
-    public tab: Observable<any>;
+    public tab: string = 'name';
     public capital: Observable<any>;
     public currency: Observable<any>;
     public inputValue: Observable<any>;
-    public details: Observable<any>;
+    public details: string = 'cos tam';
+    public country: CountryInterface;
 
     constructor() {}
 
@@ -47,6 +49,12 @@ import {Observable} from 'rxjs';
   }
   getDetails() {
     return this.inputValue;
+  }
+  setItem(country: CountryInterface){
+      this.country = country;
+  }
+  getItem(){
+     return this.country;
   }
   }
 

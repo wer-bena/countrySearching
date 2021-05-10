@@ -10,16 +10,12 @@ import {CountryInterface} from '../country.interface';
 })
 export class CountryDetailsComponent implements OnInit {
 
-  details: CountryInterface[] = [];
+  country: CountryInterface;
 
   constructor(private _dataStore: dataStoreService) {
-    this._dataStore.getDetails().subscribe((res) => {
-      this.details = res;
-      // this._dataStore.setDetails(this.details);
-      console.log('cos tam details dziala');
-      console.log(this.details);
-    });
-
+    this.country = _dataStore.getItem();
+    console.log('dupa');
+    console.log(this.country);
   }
 
   ngOnInit(): void {

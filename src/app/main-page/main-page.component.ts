@@ -18,7 +18,6 @@ export class MainPageComponent implements OnInit {
   currencies: CountryInterface[] = [];
   inputValue: string;
   tab: string = 'name';
-  liList: any = document.getElementsByTagName('li');
 
   constructor(
     private apiHttpService: ApiHttpService,
@@ -28,8 +27,9 @@ export class MainPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public getTabName(tab: string){
-    return this.tab = tab;
+  public setTabName(tab: string){
+   this._dataStoreService.setTab(tab);
+   this.tab = tab;
   }
 
   public searchBy(input: string){
@@ -41,11 +41,11 @@ export class MainPageComponent implements OnInit {
     if (this.tab === 'capital'){
       console.log(this.tab);
       this.searchByCapital(this.inputValue);
-      this._dataStoreService.setCapital(this.inputValue);
-    } else {
+    }
+    if (this.tab === 'currency'){
       console.log(this.tab);
       this.searchByCurrency(this.inputValue);
-      this._dataStoreService.setInpuTValue(this.inputValue);
+     // this._dataStoreService.setInpuTValue(this.inputValue);
     }
   }
 
@@ -59,7 +59,7 @@ export class MainPageComponent implements OnInit {
 
   public searchByCapital(value: string) {
      const capitalPromise = this.apiHttpService.getCountriesByCapital(
-       this.inputValue
+       value
      );
      console.log('stolica');
      this._dataStoreService.setCapital(capitalPromise);
@@ -67,8 +67,9 @@ export class MainPageComponent implements OnInit {
 
   public searchByCurrency(value: string) {
     const currencyPromise = this.apiHttpService.getCountriesByCurrency(
-      this.inputValue
+      value
     );
+    console.log('waluta');
     this._dataStoreService.setCurrency(currencyPromise);
   }
   }
