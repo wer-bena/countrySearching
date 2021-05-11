@@ -14,7 +14,7 @@ export class SearchResultsComponent implements OnInit {
   countries: CountryInterface[] = [];
   capitals: CountryInterface[] = [];
   currencies: CountryInterface[] = [];
-  inputValue: Observable<any>;
+  inputValue: string;
   tabName: string;
   constructor(
     private apiHttpService: ApiHttpService,
@@ -39,6 +39,7 @@ export class SearchResultsComponent implements OnInit {
     if (this.tabName === 'capital'){
       this._dataStoreService.getCapital().subscribe((res) => {
         this.capitals = res;
+        this._dataStoreService.setDetails(this.capitals);
         console.log('cos tam 2');
         console.log(this.capitals);
       });
@@ -46,6 +47,7 @@ export class SearchResultsComponent implements OnInit {
     if (this.tabName === 'currency'){
       this._dataStoreService.getCurrency().subscribe((res) => {
         this.currencies = res;
+        this._dataStoreService.setDetails(this.currencies);
         console.log('cos tam currencies');
         console.log(this.currencies);
       });
@@ -60,8 +62,8 @@ export class SearchResultsComponent implements OnInit {
     console.log(this.mainPage.countries);
   }
 
-  public storeItem(i: number){
+  public storeItem(i: CountryInterface){
     console.log(i);
-    this._dataStoreService.setItem(this.countries[i]);
+    this._dataStoreService.setItem(i);
   }
 }

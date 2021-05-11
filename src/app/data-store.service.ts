@@ -8,7 +8,7 @@ import {CountryInterface} from './country.interface';
     public tab: string = 'name';
     public capital: Observable<any>;
     public currency: Observable<any>;
-    public inputValue: Observable<any>;
+    public inputValue: string;
     public details: string = 'cos tam';
     public country: CountryInterface;
 

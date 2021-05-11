@@ -33,10 +33,10 @@ export class MainPageComponent implements OnInit {
   }
 
   public searchBy(input: string){
+    this._dataStoreService.setInpuTValue(this.inputValue);
     if (this.tab === 'name'){
       console.log(this.inputValue);
       this.searchByName(this.inputValue);
-      this._dataStoreService.setInpuTValue(this.inputValue);
     }
     if (this.tab === 'capital'){
       console.log(this.tab);
