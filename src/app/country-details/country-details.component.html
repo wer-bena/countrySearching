@@ -1,17 +1,20 @@
 <div class="uk-container-expand uk-height-viewport uk-flex uk-flex-top uk-flex-center uk-padding-large uk-background-muted">
 
   <div class="uk-container-expand uk-height-viewport uk-width-2-3 uk-padding-large">
-<h1 class="uk-heading-large"> {{country.name}} </h1>
-    <h5>Domain: </h5><span>{{country.topLevelDomain}}</span>
-    <p>Capital: </p><span>{{country.capital}}</span>
-    <p>Region: </p><span>{{country.region}}</span>
-    <p>Subregion: </p><span>{{country.subregion}}</span>
-    <p>Population: </p><span>{{country.population}}</span>
-    <p>Area: </p><span>{{country.area}}</span>
-    <p>Timezone: </p><span>{{country.timezones}}</span>
-    <p>Borders: </p><span>{{country.borders}}</span>
-    <p>Currencies: </p><span>{{country.currencies}}</span>
-    <p>Languages: </p><span>{{country.languages}}</span>
-
+<h1> {{country.name}} <img class="img" src="{{country.flag}}"></h1>
+    <ul>
+    <p>Domain: <span>{{country.topLevelDomain}}</span></p>
+    <p>Capital: <span>{{country.capital}}</span></p>
+    <p>Region: <span>{{country.region}}</span></p>
+    <p>Subregion: <span>{{country.subregion}}</span></p>
+    <p>Population: <span>{{country.population}}</span></p>
+    <p>Area: <span>{{country.area}}</span></p>
+    <p>Timezone: <span>{{country.timezones}}</span></p>
+    <p>Borders: <span>{{country.borders}}</span></p>
+    <p>Currencies: <span *ngFor="let currency of country.currencies"> {{currency.name}}; Code: {{currency.code}}, Symbol:
+      {{currency.symbol}}</span></p>
+    <p>Languages: <span *ngFor="let language of country.languages"> {{ language.name }}</span></p>
+    </ul>
   </div>
+  <button class="uk-button-large uk-button uk-button-primary uk-border-rounded uk-margin-small-top uk-align-right" routerLink="" (click)="cleanInput">Back to main</button>
 </div>

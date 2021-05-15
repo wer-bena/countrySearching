@@ -11,6 +11,7 @@ import {CountryInterface} from '../country.interface';
 export class CountryDetailsComponent implements OnInit {
 
   country: CountryInterface;
+  input: string;
 
   constructor(private _dataStore: dataStoreService) {
     this.country = _dataStore.getItem();
@@ -20,5 +21,11 @@ export class CountryDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  cleanInput(): void {
+    this._dataStore.setInpuTValue('');
+    this._dataStore.setTab('name');
+
+}
 
 }
